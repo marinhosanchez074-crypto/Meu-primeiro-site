@@ -8,7 +8,7 @@ import foto6 from './foto6.jpg.jpg';
 
 export default function App() {
   const senhaCorreta = '15122023';
-  const relationshipStart = new Date('2023-12-15T00:00:00');
+  const relationshipStart = useRef(new Date('2023-12-15T00:00:00')).current;
 
   const [senha, setSenha] = useState('');
   const [entrou, setEntrou] = useState(false);
@@ -31,7 +31,7 @@ export default function App() {
     const interval = setInterval(updateDays, 60000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [relationshipStart]);
 
   const photos = [
     {
